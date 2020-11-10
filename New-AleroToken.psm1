@@ -1,3 +1,4 @@
+# .ExternalHelp New-AleroToken-help.xml
 function New-AleroToken {
     [CmdletBinding()]
     param (
