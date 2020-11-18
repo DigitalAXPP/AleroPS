@@ -6,7 +6,7 @@ function Get-AleroGroups {
             ValueFromPipelineByPropertyName,
             HelpMessage='Token to authenticate to Alero.'
         )]
-        [string]$Authn,
+        [System.Security.SecureString]$Authn,
         
         [Parameter(
             HelpMessage='The maximum number of entries to return'
@@ -36,7 +36,7 @@ function Get-AleroGroups {
     
     process {
         $url = "https://api.alero.io/v2-edge/groups?limit=$Limit&offset=$Offset&searchIn=$SearchIn&searchString=$Search"
-        $result = Invoke-RestMethod -Method Get -Uri $url -Authentication Bearer -Token $t
+        $result = Invoke-RestMethod -Method Get -Uri $url -Authentication Bearer -Token $Authn
     }
     
     end {
