@@ -9,6 +9,7 @@ function New-AleroGroup {
         [System.Security.SecureString]$Authn,
 
         [Parameter(
+            Mandatory,
             HelpMessage='The name of the AleroLDAP group that will be added as a member to CyberArk Safes.'
         )]
         [string]$Name,

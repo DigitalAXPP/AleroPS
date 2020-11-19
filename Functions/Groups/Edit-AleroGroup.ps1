@@ -9,11 +9,13 @@ function Edit-AleroGroup {
         [System.Security.SecureString]$Authn,
 
         [Parameter(
+            Mandatory,
             HelpMessage='The unique ID of the AleroLDAP group.'
         )]
         [string]$GroupId,
 
         [Parameter(
+            Mandatory,
             HelpMessage='The description of the AleroLDAP group'
         )]
         [string]$Description
