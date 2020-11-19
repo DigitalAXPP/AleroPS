@@ -43,6 +43,7 @@ function Get-AleroGroups {
         [string]$Search,
         
         [Parameter(
+            Mandatory,
             ParameterSetName='ByGroupId',
             HelpMessage='The unique ID of the AleroLDAP group'
         )]
