@@ -19,7 +19,12 @@ function New-AleroToken {
             Mandatory,
             HelpMessage='Enter the ID your company in Alero.'
         )]
-        [string]$TenantID
+        [string]$TenantID,
+        
+        [Parameter(
+            HelpMessage='Returns the token as a secure string.'
+        )]
+        [switch]$AsSecureString
     )
     
     begin {
@@ -47,7 +52,13 @@ function New-AleroToken {
     
     end {
         Write-Verbose -Message "Returning the access token."
-        Write-Output -InputObject $response.access_token
+        if ($AsSecureString) {
+            Write-Verbose -Message "Encrypts the access token in a secure string class."
+            Write-Output -InputObject (ConvertTo-SecureString -String $response.access_token -AsPlainText -Force)
+        }
+        else {
+            Write-Output -InputObject $response.access_token   
+        }
         Remove-Variable -Name response
     }
 }
