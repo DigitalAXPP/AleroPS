@@ -1,6 +1,6 @@
 ---
-external help file: New-AleroToken-help.xml
-Module Name: AleroToken
+external help file: cybrAlero-help.xml
+Module Name: cybrAlero
 online version:
 schema: 2.0.0
 ---
@@ -13,11 +13,12 @@ Creating an authentication token for a service account from CyberArk Alero.
 ## SYNTAX
 
 ```
-New-AleroToken [-Path] <FileInfo> [-Datacenter] <String> [-TenantID] <String> [<CommonParameters>]
+New-AleroToken [-Path] <FileInfo> [-Datacenter] <String> [-TenantID] <String> [-AsSecureString]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This is an easy-to-use function to create a JWT (JSON Web Token) for authentication to CyberArk Alero. Required is the JSON file containing the private key for the service account, the data center of your tenant and the ID your tenant. The module has one dependency to OpenSSL. The token is valid for 5 minutes.
+This is an easy-to-use function to create a JWT (JSON Web Token) for authentication to CyberArk Alero. Required is the JSON file containing the private key for the service account, the data center of your tenant and the ID of your tenant. This function has a switch to convert the token to a secure string. The module has one dependency to OpenSSL. The token is valid for 5 minutes.
 
 ## EXAMPLES
 
@@ -29,6 +30,21 @@ PS C:\> New-AleroToken -Path .\j23h42k41jn3hj52h41253245.json -DataCenter alero.
 This functions returns a token.
 
 ## PARAMETERS
+
+### -AsSecureString
+Returns the token as a secure string.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -Datacenter
 Select the datacenter of your Alero instance.
