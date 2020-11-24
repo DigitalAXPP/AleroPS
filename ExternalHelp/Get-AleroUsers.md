@@ -14,7 +14,7 @@ This function returns user information, either based on a string search or on a 
 
 ### BySearch (Default)
 ```
-Get-AleroUsers -Authn <SecureString> [-Name <String[]>] [-Limit <Int32>] [-Offset <Int32>] [<CommonParameters>]
+Get-AleroUsers -Authn <SecureString> [-Name <String>] [-Limit <Int32>] [-Offset <Int32>] [<CommonParameters>]
 ```
 
 ### ById
