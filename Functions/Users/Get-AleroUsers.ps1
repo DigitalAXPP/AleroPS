@@ -21,7 +21,7 @@ function Get-AleroUsers {
             ParameterSetName='BySearch',
             HelpMessage='The name of the users to include in the returned list, or part of the name.')]
         [SupportsWildcards()]
-        [string[]]$Name,
+        [string]$Name,
         
         [Parameter(
             ParameterSetName='BySearch',
