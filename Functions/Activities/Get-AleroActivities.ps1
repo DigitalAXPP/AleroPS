@@ -40,7 +40,13 @@ function Get-AleroActivities {
     }
     
     process {
-        $url = "https://api.alero.io/v2-edge/activities?activityTypes=$ActivityType&fromTime=$($FromTime.ToUnixTimeMilliseconds())&limit=$Limit&offset=$Offset&toTime=$($ToTime.ToUnixTimeMilliseconds())"
+        $url = [string]::Concat(
+            "https://api.alero.io/v2-edge/activities?activityTypes=$ActivityType",
+            "&fromTime=$($FromTime.ToUnixTimeMilliseconds())",
+            "&limit=$Limit",
+            "&offset=$Offset",
+            "&toTime=$($ToTime.ToUnixTimeMilliseconds())"
+        )
         $result = Invoke-RestMethod -Method Get -Uri $url -Authentication Bearer -Token $Authn
     }
     
