@@ -1,4 +1,6 @@
 $scriptBlock = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameters)
+
     @(
         "ApplicationCreated", 
         "ApplicationDeleted", 
@@ -41,6 +43,10 @@ $scriptBlock = {
         "ServiceAccountDeleted", 
         "ServiceAccountActivated", 
         "ServiceAccountDeactivated"
-    )
+    ) | Where-Object {
+        $_ -like "$wordToComplete*"
+    } | ForEach-Object {
+          "'$_'"
+    }
 }
 Register-ArgumentCompleter -CommandName Get-AleroActivities -ParameterName ActivityType -ScriptBlock $scriptBlock

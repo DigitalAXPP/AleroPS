@@ -40,8 +40,9 @@ function Get-AleroActivities {
     }
     
     process {
+        $activity = $ActivityType | ForEach-Object { "activityTypes=$_" }
         $url = [string]::Concat(
-            "https://api.alero.io/v2-edge/activities?activityTypes=$ActivityType",
+            "https://api.alero.io/v2-edge/activities?$($activity -join '&')",
             "&fromTime=$($FromTime.ToUnixTimeMilliseconds())",
             "&limit=$Limit",
             "&offset=$Offset",
