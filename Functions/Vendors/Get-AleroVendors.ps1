@@ -1,4 +1,4 @@
-function Get-Vendors {
+function Get-AleroVendors {
     [CmdletBinding(DefaultParameterSetName='ByString')]
     param (
         [Parameter(
