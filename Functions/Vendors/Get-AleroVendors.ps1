@@ -73,7 +73,7 @@ function Get-AleroVendors {
     
     process {
         switch ($PSCmdlet.ParameterSetName) {
-            "ByString" { 
+            "ByString" {
                 $url = "https://api.alero.io/v2-edge/vendors?invitedBy=$InvitedBy&limit=$Limit&offset=$Offset&searchIn=$SearchIn&searchString=$SearchString"
             }
             "ByVendorId" {
