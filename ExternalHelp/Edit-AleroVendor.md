@@ -12,12 +12,19 @@ This commands modifies a vendor in the Alero portal.
 
 ## SYNTAX
 
+### Vendor (Default)
 ```
-Edit-AleroVendor [-Authn] <SecureString> [[-VendorId] <String>] [[-Status] <String>] [<CommonParameters>]
+Edit-AleroVendor -Authn <SecureString> [-VendorId <String>] [-VendorUpdateRequest <Hashtable>]
+ [<CommonParameters>]
+```
+
+### Status
+```
+Edit-AleroVendor -Authn <SecureString> [-VendorId <String>] [-Status <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This command can change the status of a vendor in the Alero portal.
+This command can change the status of a vendor in the Alero portal or the properties. When modifying the properties, all properties must be provided.
 
 ## EXAMPLES
 
@@ -27,6 +34,13 @@ PS C:\> Edit-AleroVendor -Authn $auth -VendorId j2k4h23h423kjh423jh42k3j4 -Statu
 ```
 
 The command deactivates the specified vendor.
+
+### Example 2
+```powershell
+PS C:\> Edit-AleroVendor -Authn $auth -VendorId j2k4h23h423kjh423jh42k3j4 -VendorUpdateRequest $updateBody
+```
+
+The command updates all properties specified in the hashtable object 'updateBody' for the vendor.
 
 ## PARAMETERS
 
@@ -39,7 +53,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 0
+Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
@@ -50,12 +64,12 @@ The updated status of the vendor's account.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: Status
 Aliases:
 Accepted values: Deactivated, Activated
 
 Required: False
-Position: 2
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -70,7 +84,22 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -VendorUpdateRequest
+All vendor properties must be provided.
+
+```yaml
+Type: Hashtable
+Parameter Sets: Vendor
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
