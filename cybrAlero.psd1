@@ -24,7 +24,7 @@ GUID = '59a924ac-e765-49fe-9e50-75456a7f3b1e'
 Author = 'Alexander Piepenhagen'
 
 # Company or vendor of this module
-CompanyName = 'Accenture'
+CompanyName = 'Alexander Piepenhagen'
 
 # Copyright statement for this module
 Copyright = '(c) Alexander Piepenhagen. All rights reserved.'
@@ -80,7 +80,10 @@ FunctionsToExport = @(
     'Get-AleroUsers',
     'Edit-AleroUser',
     'Remove-AleroUser',
-    "Get-AleroActivities"
+    'Get-AleroActivities',
+    'Get-AleroVendors',
+    'Edit-AleroVendor',
+    'Remove-AleroVendor'
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
