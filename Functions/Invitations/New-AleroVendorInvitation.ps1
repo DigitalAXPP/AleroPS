@@ -1,5 +1,6 @@
 function New-AleroVendorInvitation {
     [CmdletBinding()]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,
