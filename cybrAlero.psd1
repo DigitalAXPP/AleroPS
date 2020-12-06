@@ -83,7 +83,10 @@ FunctionsToExport = @(
     'Get-AleroActivities',
     'Get-AleroVendors',
     'Edit-AleroVendor',
-    'Remove-AleroVendor'
+    'Remove-AleroVendor',
+    'New-AleroInvitation',
+    'Get-AleroVendorInvitations',
+    'Remove-AleroVendorInvitation'
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
