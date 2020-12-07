@@ -4,7 +4,6 @@ function Get-AleroSelfServiceRequest {
         [Parameter(
             Mandatory,
             ValueFromPipelineByPropertyName,
-            ParameterSetName='ByPhoneNumber',
             HelpMessage='Token to authenticate to Alero.'
         )]
         [System.Security.SecureString]$Authn,
