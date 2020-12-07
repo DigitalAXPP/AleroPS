@@ -1,6 +1,12 @@
 function Approve-AleroSelfServiceRequest {
     [CmdletBinding()]
     param (
+        [Parameter(
+            Mandatory,
+            ValueFromPipelineByPropertyName,
+            HelpMessage='Token to authenticate to Alero.'
+        )]
+        [System.Security.SecureString]$Authn,
         
         [Parameter(
             Mandatory,
