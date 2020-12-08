@@ -1,6 +1,6 @@
 ---
-external help file: cybrAlero-help.xml
-Module Name: cybrAlero
+external help file: AleroPS-help.xml
+Module Name: AleroPS
 online version:
 schema: 2.0.0
 ---
