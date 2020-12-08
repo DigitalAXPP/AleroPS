@@ -1,5 +1,6 @@
 function Approve-AleroSelfServiceRequest {
     [CmdletBinding()]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,

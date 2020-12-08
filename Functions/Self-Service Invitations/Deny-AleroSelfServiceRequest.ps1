@@ -1,5 +1,6 @@
 function Deny-AleroSelfServiceRequest {
     [CmdletBinding()]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,
