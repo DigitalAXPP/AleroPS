@@ -11,7 +11,7 @@ function New-AleroToken {
             Mandatory,
             HelpMessage='Select the datacenter of your Alero instance.'
         )]
-        [ValidateSet('alero.io', 'alero.eu')]
+        [ValidateSet('alero.io', 'alero.eu', 'ca.alero.io')]
         [string]$Datacenter,
         
         [Parameter(
