@@ -17,12 +17,13 @@ Edit-AleroGroup [-Authn] <SecureString> [-GroupId] <String> [-Description] <Stri
 ```
 
 ## DESCRIPTION
-Only the description of an Alero group can be edited once the group is created. If the name should be edited, the group has to be created.
+Only the description of an Alero group can be edited once the group is created.
+If the name should be edited, the group has to be created.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Edit-AleroGroup -Authn $auth -GroupId j1h42k3j4h2kb1h12v3bj -Description "This is a new description."
 ```
 
@@ -81,7 +82,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

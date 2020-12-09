@@ -22,7 +22,7 @@ This function removes the vendor associated to the vendor ID from Alero.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Remove-AleroVendor -Authn $auth -VendorId j234f3dadw65sd76aj2k3423j4h
 ```
 
@@ -66,7 +66,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

@@ -22,7 +22,7 @@ This function create a new group in Alero.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> New-AleroGroup -Authn $auth -Name Alero-PROD-EU
 ```
 
@@ -81,7 +81,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

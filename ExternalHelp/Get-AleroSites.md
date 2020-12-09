@@ -22,14 +22,14 @@ You can return a number of sites from the Alero portal.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Get-AleroSites -Authn $auth
 ```
 
 This command returns the first 100 (default value of the $Limit parameter) sites from the Alero portal.
 
 ### Example 2
-```powershell
+```
 PS C:\> Get-AleroSites -Authn $auth -Limit 50 -Offset 25
 ```
 
@@ -88,7 +88,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

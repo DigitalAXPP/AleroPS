@@ -1,5 +1,6 @@
 function Remove-AleroVendor {
     [CmdletBinding()]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,

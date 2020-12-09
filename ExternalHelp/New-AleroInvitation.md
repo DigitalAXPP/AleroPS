@@ -23,7 +23,7 @@ You can invite either a vendor or an user with this command.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> New-AleroInvitation -Authn $auth -InvitationRequest $obj -UserInvitation
 ```
 
@@ -71,7 +71,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -82,11 +82,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.String
-
 ## NOTES
 
 ## RELATED LINKS

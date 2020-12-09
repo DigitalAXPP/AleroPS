@@ -1,5 +1,6 @@
 function Edit-AleroVendor {
     [CmdletBinding(DefaultParameterSetName='Vendor')]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,

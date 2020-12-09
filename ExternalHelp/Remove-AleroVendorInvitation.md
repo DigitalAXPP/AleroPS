@@ -22,7 +22,7 @@ This command deletes the invitation associated with the invitation ID.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Remove-AleroVendorInvitation -Authn $auth -InvitationId 123hjk1j3h1khg3h4jgj
 ```
 
@@ -66,11 +66,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.String
-
 ## NOTES
 
 ## RELATED LINKS

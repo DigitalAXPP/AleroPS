@@ -1,5 +1,6 @@
 function Remove-AleroUser {
     [CmdletBinding()]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,

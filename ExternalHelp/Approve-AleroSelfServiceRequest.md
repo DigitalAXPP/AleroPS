@@ -23,11 +23,12 @@ Running this command requires on the one hand the ID of the pending request as w
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Approve-AleroSelfServiveRequest -Authn $auth -RequestId j2h3423afassdf8079sdf078 -RequestBody $hashTable
 ```
 
-The request body must contain all the properties. The information can be found in the official documentation.
+The request body must contain all the properties.
+The information can be found in the official documentation.
 
 ## PARAMETERS
 
@@ -83,11 +84,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.String
-
 ## NOTES
 
 ## RELATED LINKS

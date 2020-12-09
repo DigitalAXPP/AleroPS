@@ -23,7 +23,7 @@ Application information is returned from the specified site.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Get-AleroApplications -Authn $auth -SiteId 11eb08818fdadaa4779234795f204bc175a7
 ```
 
@@ -97,7 +97,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

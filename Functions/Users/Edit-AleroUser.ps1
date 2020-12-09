@@ -1,5 +1,6 @@
 function Edit-AleroUser {
     [CmdletBinding()]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,

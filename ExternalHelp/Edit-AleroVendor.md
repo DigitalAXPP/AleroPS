@@ -24,19 +24,20 @@ Edit-AleroVendor -Authn <SecureString> [-VendorId <String>] [-Status <String>] [
 ```
 
 ## DESCRIPTION
-This command can change the status of a vendor in the Alero portal or the properties. When modifying the properties, all properties must be provided.
+This command can change the status of a vendor in the Alero portal or the properties.
+When modifying the properties, all properties must be provided.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Edit-AleroVendor -Authn $auth -VendorId j2k4h23h423kjh423jh42k3j4 -Status Deactivated
 ```
 
 The command deactivates the specified vendor.
 
 ### Example 2
-```powershell
+```
 PS C:\> Edit-AleroVendor -Authn $auth -VendorId j2k4h23h423kjh423jh42k3j4 -VendorUpdateRequest $updateBody
 ```
 
@@ -111,7 +112,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

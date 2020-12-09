@@ -23,19 +23,20 @@ Get-AleroUsers -Authn <SecureString> -UserId <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The string search allows also the usage of wildcards. The search applies to the name of the user.
+The string search allows also the usage of wildcards.
+The search applies to the name of the user.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Get-AleroUsers -Authn $auth -Name Robert
 ```
 
 This command returns a list of users with the name Robert.
 
 ### Example 2
-```powershell
+```
 PS C:\> Get-AleroUsers -Authn $auth -UserId jk23h423jh423k234khkj
 ```
 
@@ -124,7 +125,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

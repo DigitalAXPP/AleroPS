@@ -22,7 +22,7 @@ This function removes the specified Alero user.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Remove-AleroUser -Authn $auth -UserId j243k2h34k23jh4khk1kk3e12
 ```
 
@@ -66,7 +66,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

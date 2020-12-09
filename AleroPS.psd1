@@ -69,14 +69,28 @@ PowerShellVersion = '6.0.0'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'New-AleroToken', 'Get-AleroGroups', 'New-AleroGroup', 
-               'Edit-AleroGroup', 'Remove-AleroGroup', 'Get-AleroSites', 
-               'Get-AleroApplications', 'Get-AleroUsers', 'Edit-AleroUser', 
-               'Remove-AleroUser', 'Get-AleroActivities', 'Get-AleroVendors', 
-               'Edit-AleroVendor', 'Remove-AleroVendor', 'New-AleroInvitation', 
-               'Get-AleroVendorInvitations', 'Remove-AleroVendorInvitation', 
-               'Get-AleroSelfServiceRequest', 'Approve-AleroSelfServiceRequest', 
-               'Deny-AleroSelfServiceRequest'
+FunctionsToExport = @(
+    'New-AleroToken', 
+    'Get-AleroGroups', 
+    'New-AleroGroup', 
+    'Edit-AleroGroup', 
+    'Remove-AleroGroup', 
+    'Get-AleroSites', 
+    'Get-AleroApplications', 
+    'Get-AleroUsers', 
+    'Edit-AleroUser', 
+    'Remove-AleroUser', 
+    'Get-AleroActivities', 
+    'Get-AleroVendors', 
+    'Edit-AleroVendor', 
+    'Remove-AleroVendor', 
+    'New-AleroInvitation', 
+    'Get-AleroVendorInvitations', 
+    'Remove-AleroVendorInvitation', 
+    'Get-AleroSelfServiceRequest', 
+    'Approve-AleroSelfServiceRequest', 
+    'Deny-AleroSelfServiceRequest'
+)
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -108,7 +122,7 @@ PrivateData = @{
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/DigitalAXPP/AleroPS'
 
         # A URL to an icon representing this module.
         # IconUri = ''

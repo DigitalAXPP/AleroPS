@@ -22,7 +22,7 @@ The specified group will be removed from the Alero portal.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Remove-AleroGroup -Authn $auth -GroupId 2j34h2j34hkh1h32kjh12jk3h
 ```
 
@@ -66,7 +66,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

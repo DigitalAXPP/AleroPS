@@ -18,12 +18,16 @@ New-AleroToken [-Path] <FileInfo> [-Datacenter] <String> [-TenantID] <String> [-
 ```
 
 ## DESCRIPTION
-This is an easy-to-use function to create a JWT (JSON Web Token) for authentication to CyberArk Alero. Required is the JSON file containing the private key for the service account, the data center of your tenant and the ID of your tenant. This function has a switch to convert the token to a secure string. The module has one dependency to OpenSSL. The token is valid for 5 minutes.
+This is an easy-to-use function to create a JWT (JSON Web Token) for authentication to CyberArk Alero.
+Required is the JSON file containing the private key for the service account, the data center of your tenant and the ID of your tenant.
+This function has a switch to convert the token to a secure string.
+The module has one dependency to OpenSSL.
+The token is valid for 5 minutes.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> New-AleroToken -Path .\j23h42k41jn3hj52h41253245.json -DataCenter alero.io -TenantID 1342nm253453n5m214
 ```
 
@@ -41,7 +45,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -98,7 +102,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### None
-
 ## OUTPUTS
 
 ### System.Object

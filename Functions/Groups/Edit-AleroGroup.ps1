@@ -1,5 +1,6 @@
 function Edit-AleroGroup {
     [CmdletBinding()]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,

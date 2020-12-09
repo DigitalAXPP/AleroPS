@@ -22,7 +22,7 @@ So far only the status of the specified Alero user can be edited.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Edit-AleroUser -Authn $auth -UserId 23j4h4k21h23k1j34hh2134hjkhkh32 -Status Deactivated
 ```
 
@@ -82,7 +82,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

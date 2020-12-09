@@ -18,12 +18,13 @@ Get-AleroActivities [-Authn] <SecureString> [-ActivityType] <String[]> [[-FromTi
 ```
 
 ## DESCRIPTION
-This command accepts an array of strings for the ActivityType parameter, which also has auto-complete functionality. Additionally, you need to enter the timespan in a datetime format for the start and end date.
+This command accepts an array of strings for the ActivityType parameter, which also has auto-complete functionality.
+Additionally, you need to enter the timespan in a datetime format for the start and end date.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Get-AleroActivities -Authn $auth -ActivityType GroupsCreated -FromTime ((Get-Date).AddDays(-3)) -ToTime (Get-Date)
 ```
 
@@ -127,7 +128,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

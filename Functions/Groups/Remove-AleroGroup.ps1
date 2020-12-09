@@ -1,5 +1,6 @@
 function Remove-AleroGroup {
     [CmdletBinding()]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,
