@@ -1,5 +1,8 @@
 function New-AleroGroup {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact='Medium'
+    )]
     param (
         [Parameter(
             Mandatory,
@@ -36,7 +39,9 @@ function New-AleroGroup {
             'Token' = $Authn
             'ContentType' = 'application/json'
         }
-        $result = Invoke-RestMethod @restCall
+        if ($PSCmdlet.ShouldProcess($Name, "Create the Alero group.")) {
+            $result = Invoke-RestMethod @restCall
+        }
     }
     
     end {
