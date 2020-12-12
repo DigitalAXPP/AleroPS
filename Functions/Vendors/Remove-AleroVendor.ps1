@@ -30,7 +30,6 @@ function Remove-AleroVendor {
     }
     
     end {
-        Write-Output -InputObject $result
-        Remove-Variable -Name result        
+        Write-Output -InputObject $result  
     }
 }

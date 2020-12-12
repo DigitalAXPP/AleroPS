@@ -1,5 +1,8 @@
 function Remove-AleroVendorInvitation {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact='Medium'
+    )]
     [OutputType([string])]
     param (
         [Parameter(
@@ -21,11 +24,12 @@ function Remove-AleroVendorInvitation {
     
     process {
         $url = "https://api.alero.io/v2-edge/invitations/vendor-invitations/$InvitationId"
-        $result = Invoke-RestMethod -Method Delete -Uri $url -Authentication Bearer -Token $Authn
+        if ($PSCmdlet.ShouldProcess("VendorId: $VendorId", "Removing vendor")) {
+            $result = Invoke-RestMethod -Method Delete -Uri $url -Authentication Bearer -Token $Authn            
+        }
     }
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }
