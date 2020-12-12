@@ -57,6 +57,5 @@ function Get-AleroSelfServiceRequest {
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }
