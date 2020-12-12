@@ -1,5 +1,8 @@
 function Deny-AleroSelfServiceRequest {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact='Medium'
+    )]
     [OutputType([string])]
     param (
         [Parameter(
@@ -21,11 +24,12 @@ function Deny-AleroSelfServiceRequest {
     
     process {
         $url = "https://api.alero.io/v2-edge/selfServiceRequests/$RequestId"
-        $result = Invoke-RestMethod -Method Delete -Uri $url -Authentication Bearer -Token $Authn
+        if ($PSCmdlet.ShouldProcess("RequestId: $RequestId", "Reject the pending request")) {
+            $result = Invoke-RestMethod -Method Delete -Uri $url -Authentication Bearer -Token $Authn            
+        }
     }
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }

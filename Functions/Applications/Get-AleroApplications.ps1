@@ -37,6 +37,5 @@ function Get-AleroApplications {
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }

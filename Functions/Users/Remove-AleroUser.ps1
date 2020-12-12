@@ -1,5 +1,8 @@
 function Remove-AleroUser {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact='Medium'
+    )]
     [OutputType([string])]
     param (
         [Parameter(
@@ -22,11 +25,12 @@ function Remove-AleroUser {
     
     process {
         $url = "https://api.alero.io/v2-edge/users/$UserId"
-        $result = Invoke-RestMethod -Method Delete -Uri $url -Authentication Bearer -Token $Authn
+        if ($PSCmdlet.ShouldProcess("UserId: $UserId", "Remove Alero user")) {
+            $result = Invoke-RestMethod -Method Delete -Uri $url -Authentication Bearer -Token $Authn            
+        }
     }
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }

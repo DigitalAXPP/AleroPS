@@ -14,13 +14,14 @@ This commands modifies a vendor in the Alero portal.
 
 ### Vendor (Default)
 ```
-Edit-AleroVendor -Authn <SecureString> [-VendorId <String>] [-VendorUpdateRequest <Hashtable>]
- [<CommonParameters>]
+Edit-AleroVendor -Authn <SecureString> [-VendorId <String>] [-VendorUpdateRequest <Hashtable>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### Status
 ```
-Edit-AleroVendor -Authn <SecureString> [-VendorId <String>] [-Status <String>] [<CommonParameters>]
+Edit-AleroVendor -Authn <SecureString> [-VendorId <String>] [-Status <String>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -98,6 +99,36 @@ All vendor properties must be provided.
 Type: Hashtable
 Parameter Sets: Vendor
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
 
 Required: False
 Position: Named
