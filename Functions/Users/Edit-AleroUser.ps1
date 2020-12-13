@@ -1,5 +1,9 @@
 function Edit-AleroUser {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact='Low'
+    )]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,
@@ -35,11 +39,12 @@ function Edit-AleroUser {
             'Authentication' = 'Bearer'
             'Token' = $Authn
         }
-        $result = Invoke-RestMethod @restCall
+        if ($PSCmdlet.ShouldProcess("UserId: $UserId", "Status change to $Status")) {
+            $result = Invoke-RestMethod @restCall            
+        }
     }
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }

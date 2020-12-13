@@ -22,7 +22,7 @@ This command rejects a pending request.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Deny-AleroSelfServiceRequest -Authn $auth -RequestId asdf807s7afn13j4kk23j4
 ```
 
@@ -66,11 +66,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.String
-
 ## NOTES
 
 ## RELATED LINKS

@@ -29,14 +29,14 @@ You can either retrieve the information of a particular invitation by providing 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Get-AleroVendorInvitations -Authn $auth -SearchIn ALL -SearchString Peter
 ```
 
 This command returns all invitation details which contain 'Peter' in any of the fields.
 
 ### Example 2
-```powershell
+```
 PS C:\> Get-AleroVendorInvitations -Authn $auth -InvitationId 12h31g3sdlkcjs078f6
 ```
 
@@ -156,7 +156,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

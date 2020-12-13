@@ -13,7 +13,8 @@ This function edits the status of an existing Alero user.
 ## SYNTAX
 
 ```
-Edit-AleroUser [-Authn] <SecureString> [-UserId] <String> [-Status] <String> [<CommonParameters>]
+Edit-AleroUser [-Authn] <SecureString> [-UserId] <String> [-Status] <String> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -22,7 +23,7 @@ So far only the status of the specified Alero user can be edited.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Edit-AleroUser -Authn $auth -UserId 23j4h4k21h23k1j34hh2134hjkhkh32 -Status Deactivated
 ```
 
@@ -76,13 +77,42 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

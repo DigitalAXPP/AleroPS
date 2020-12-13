@@ -24,19 +24,20 @@ Get-AleroGroups -Authn <SecureString> -GroupId <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-You can choose to select groups either by string. This may return multiple groups or you can select a single group by ID.
+You can choose to select groups either by string.
+This may return multiple groups or you can select a single group by ID.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Get-AleroGroups -Authn $auth -Search "Prod" -Limit 15
 ```
 
 This command returns all groups which have 'Prod' in their name but maximally 15.
 
 ### Example 2
-```powershell
+```
 PS C:\> Get-AleroGroups -Authn $auth -GroupId 1j43h12k4h31jhj123
 ```
 
@@ -141,7 +142,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

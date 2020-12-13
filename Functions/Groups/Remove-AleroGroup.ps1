@@ -1,5 +1,9 @@
 function Remove-AleroGroup {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact='Medium'
+    )]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,
@@ -26,11 +30,12 @@ function Remove-AleroGroup {
             'Authentication' = 'Bearer'
             'Token' = $Authn
         }
-        $result = Invoke-RestMethod @restBody
+        if ($PSCmdlet.ShouldProcess("GroupId: $GroupId", "Remove the Alero group")) {
+            $result = Invoke-RestMethod @restBody
+        }
     }
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }

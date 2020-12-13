@@ -13,7 +13,8 @@ This function removes an Alero invitation.
 ## SYNTAX
 
 ```
-Remove-AleroVendorInvitation [-Authn] <SecureString> [[-InvitationId] <String>] [<CommonParameters>]
+Remove-AleroVendorInvitation [-Authn] <SecureString> [[-InvitationId] <String>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -22,7 +23,7 @@ This command deletes the invitation associated with the invitation ID.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Remove-AleroVendorInvitation -Authn $auth -InvitationId 123hjk1j3h1khg3h4jgj
 ```
 
@@ -60,17 +61,45 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.String
-
 ## NOTES
 
 ## RELATED LINKS

@@ -1,5 +1,8 @@
 function New-AleroInvitation {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact='Medium'
+    )]
     [OutputType([string])]
     param (
         [Parameter(
@@ -40,11 +43,12 @@ function New-AleroInvitation {
             'Token' = $Authn
             'ContentType' = 'application/json'
         }
-        $result = Invoke-RestMethod @restCall
+        if ($PSCmdlet.ShouldProcess("Alero Invitation", "Creating a new invitation")) {
+            $result = Invoke-RestMethod @restCall            
+        }
     }
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }

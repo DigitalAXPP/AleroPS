@@ -1,5 +1,9 @@
 function Edit-AleroGroup {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess, 
+        ConfirmImpact='Low'
+    )]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,
@@ -34,11 +38,12 @@ function Edit-AleroGroup {
             'Authentication' = 'Bearer'
             'Token' = $Authn
         }
-        $result = Invoke-RestMethod @restBody
+        if ($PSCmdlet.ShouldProcess("GroupId: $GroupId", "Change description")) {
+            $result = Invoke-RestMethod @restBody            
+        }
     }
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }

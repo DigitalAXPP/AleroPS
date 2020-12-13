@@ -69,6 +69,5 @@ function Get-AleroGroups {
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }

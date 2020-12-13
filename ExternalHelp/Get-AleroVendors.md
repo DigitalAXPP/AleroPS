@@ -34,21 +34,21 @@ You can search vendors based on a string, their phone number or their vendor ID.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Get-AleroVendors -Authn $auth -SearchIn ALL -SearchString "Anna"
 ```
 
 This command returns all vendors who have 'Anna' mentioned anywhere in their profile.
 
 ### Example 2
-```powershell
+```
 PS C:\> Get-AleroVendors -Authn $auth -PhoneNumber +49123456789
 ```
 
 This command returns the vendor who has the entered international phone number registered in their profile.
 
 ### Example 3
-```powershell
+```
 PS C:\> Get-AleroVendors -Authn $auth -VendorId 12j3h2k4h21jkhg4jk123h4g
 ```
 
@@ -183,7 +183,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

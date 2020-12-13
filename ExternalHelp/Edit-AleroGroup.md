@@ -13,16 +13,18 @@ This function edits the description of an existing Alero group.
 ## SYNTAX
 
 ```
-Edit-AleroGroup [-Authn] <SecureString> [-GroupId] <String> [-Description] <String> [<CommonParameters>]
+Edit-AleroGroup [-Authn] <SecureString> [-GroupId] <String> [-Description] <String> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Only the description of an Alero group can be edited once the group is created. If the name should be edited, the group has to be created.
+Only the description of an Alero group can be edited once the group is created.
+If the name should be edited, the group has to be created.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Edit-AleroGroup -Authn $auth -GroupId j1h42k3j4h2kb1h12v3bj -Description "This is a new description."
 ```
 
@@ -75,13 +77,42 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

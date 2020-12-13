@@ -1,5 +1,9 @@
 function Remove-AleroVendor {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact='Medium'
+    )]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,
@@ -20,11 +24,12 @@ function Remove-AleroVendor {
     
     process {
         $url = "https://api.alero.io/v2-edge/vendors/$VendorId"
-        $result = Invoke-RestMethod -Method Delete -Uri $url -Authentication Bearer -Token $Authn
+        if ($PSCmdlet.ShouldProcess("VendorId: $VendorId", "Delete the Vendor")) {
+            $result = Invoke-RestMethod -Method Delete -Uri $url -Authentication Bearer -Token $Authn            
+        }
     }
     
     end {
-        Write-Output -InputObject $result
-        Remove-Variable -Name result        
+        Write-Output -InputObject $result  
     }
 }

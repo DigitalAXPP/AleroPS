@@ -13,17 +13,21 @@ Creating an authentication token for a service account from CyberArk Alero.
 ## SYNTAX
 
 ```
-New-AleroToken [-Path] <FileInfo> [-Datacenter] <String> [-TenantID] <String> [-AsSecureString]
- [<CommonParameters>]
+New-AleroToken [-Path] <FileInfo> [-Datacenter] <String> [-TenantID] <String> [-AsSecureString] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This is an easy-to-use function to create a JWT (JSON Web Token) for authentication to CyberArk Alero. Required is the JSON file containing the private key for the service account, the data center of your tenant and the ID of your tenant. This function has a switch to convert the token to a secure string. The module has one dependency to OpenSSL. The token is valid for 5 minutes.
+This is an easy-to-use function to create a JWT (JSON Web Token) for authentication to CyberArk Alero.
+Required is the JSON file containing the private key for the service account, the data center of your tenant and the ID of your tenant.
+This function has a switch to convert the token to a secure string.
+The module has one dependency to OpenSSL.
+The token is valid for 5 minutes.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> New-AleroToken -Path .\j23h42k41jn3hj52h41253245.json -DataCenter alero.io -TenantID 1342nm253453n5m214
 ```
 
@@ -41,7 +45,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -92,13 +96,42 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### None
-
 ## OUTPUTS
 
 ### System.Object

@@ -23,7 +23,7 @@ The query can be tuned by string and time period.
 ## EXAMPLES
 
 ### Example 1
-```powershell
+```
 PS C:\> Get-AleroSelfServiceRequest -Authn $auth -FromTime (Get-Date -Date (Get-Date).AddDays(-15)) -ToTime (Get-Date -Date (Get-Date)) -SearchIn FULLNAME -SearchString "Mustermann"
 ```
 
@@ -143,7 +143,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.Object

@@ -1,5 +1,8 @@
 function New-AleroToken {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact='Low'
+    )]
     param (
         [Parameter(
             Mandatory,
@@ -11,7 +14,7 @@ function New-AleroToken {
             Mandatory,
             HelpMessage='Select the datacenter of your Alero instance.'
         )]
-        [ValidateSet('alero.io', 'alero.eu')]
+        [ValidateSet('alero.io', 'alero.eu', 'ca.alero.io')]
         [string]$Datacenter,
         
         [Parameter(
@@ -46,7 +49,9 @@ function New-AleroToken {
             client_assertion_type='urn:ietf:params:oauth:client-assertion-type:jwt-bearer'
             client_assertion=$jwtSignature
         }
-        $response = Invoke-RestMethod -Method Post -Uri $url -Body $body -ContentType "application/x-www-form-urlencoded"
+        if ($PSCmdlet.ShouldProcess($Datacenter, "Creating JWT token.")) {
+            $response = Invoke-RestMethod -Method Post -Uri $url -Body $body -ContentType "application/x-www-form-urlencoded"            
+        }
     }
     
     end {
@@ -58,6 +63,5 @@ function New-AleroToken {
         else {
             Write-Output -InputObject $response.access_token   
         }
-        Remove-Variable -Name response
     }
 }

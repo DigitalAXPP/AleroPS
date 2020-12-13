@@ -1,5 +1,8 @@
 function Approve-AleroSelfServiceRequest {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact='Low'
+    )]
     [OutputType([string])]
     param (
         [Parameter(
@@ -35,11 +38,12 @@ function Approve-AleroSelfServiceRequest {
             'Authentication' = 'Bearer'
             'Token' = $Authn
         }
-        $result = Invoke-RestMethod @restCall
+        if ($PSCmdlet.ShouldProcess("RequestId: $RequestId", "Approve the pending request")) {
+            $result = Invoke-RestMethod @restCall            
+        }
     }
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }

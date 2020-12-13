@@ -1,5 +1,10 @@
 function Edit-AleroVendor {
-    [CmdletBinding(DefaultParameterSetName='Vendor')]
+    [CmdletBinding(
+        DefaultParameterSetName='Vendor',
+        SupportsShouldProcess,
+        ConfirmImpact='Medium'
+    )]
+    [OutputType([string])]
     param (
         [Parameter(
             Mandatory,
@@ -63,11 +68,12 @@ function Edit-AleroVendor {
             'Token' = $Authn
             'Body' = $body
         }
-        $result = Invoke-RestMethod @restBody
+        if ($PSCmdlet.ShouldProcess("VendorId: $VendorId", "Updating the vendor")) {
+            $result = Invoke-RestMethod @restBody            
+        }
     }
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }

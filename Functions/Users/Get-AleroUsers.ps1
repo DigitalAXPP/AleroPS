@@ -62,6 +62,5 @@ function Get-AleroUsers {
     
     end {
         Write-Output -InputObject $result
-        Remove-Variable -Name result
     }
 }
