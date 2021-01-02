@@ -4,11 +4,10 @@ Describe "New-AleroToken" {
         $dir = Split-Path (Split-Path $PSScriptRoot -Parent) -Leaf
         Import-Module -Name $dir
         #endregion
-
         #region Importing configuration file
         $moduleDir = Split-Path -Path $PSScriptRoot -Parent
         $configFile =  Get-Content -Path "$(Split-Path -Path $moduleDir -Parent)\config.json" | ConvertFrom-Json
-        $config = Get-Content -Path "$(Split-Path -Path $moduleDir -Parent)\$($configFile.PrivateKey)" | ConvertFrom-Json
+        $configPath = "$(Split-Path -Path $moduleDir -Parent)\$($configFile.PrivateKey)"
         #endregion
     }
     Context "Validating mandatory parameters" {
@@ -21,6 +20,14 @@ Describe "New-AleroToken" {
             param($Parameter)
             $functionMeta = Get-Command -Name New-AleroToken
             $functionMeta.Parameters[$Parameter].Attributes.Mandatory | Should -BeTrue
+        }
+    }
+    Context "Validating output" {
+        It "with Base64 encryption" {            
+            ( New-AleroToken -Path $configPath -Datacenter $configFile.Datacenter -TenantID $configFile.TenantID ) | Should -BeOfType [string]
+        }
+        It "with securestring return" {
+            ( New-AleroToken -Path $configPath -Datacenter $configFile.Datacenter -TenantID $configFile.TenantID -AsSecureString ) | Should -BeOfType [System.Security.SecureString]
         }
     }
 }
