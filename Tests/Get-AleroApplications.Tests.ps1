@@ -21,4 +21,14 @@ Describe "Get-AleroApplications" {
             $functionMeta.Parameters[$Parameter].Attributes.Mandatory | Should -BeTrue
         }
     }
+    Context "Verify the output" {
+        BeforeEach {
+            $auth = New-AleroToken -Path $configPath -Datacenter $configFile.Datacenter -TenantID $configFile.TenantID -AsSecureString
+        }
+        It "Returning the Alero applications" {
+            $output = Get-AleroApplications -Authn $auth -SiteId $configFile.SiteID
+            $output | Should -Not -BeNullOrEmpty
+            $output | Should -BeOfType [PSCustomObject]
+        }
+    }
 }
