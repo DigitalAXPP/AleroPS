@@ -1,4 +1,4 @@
-# cybrAlero
+# AleroPS
 This repository contains functions to leverage the CyberArk Alero REST API. First and foremost it is noteworthy to mention the 'New-AleroToken' function which provides and easy-to-use option of retrieving/creating a temporary API token to authenticate to Alero.
 
 ## New-AleroToken
@@ -10,6 +10,20 @@ The functions use the `-Authorization Bearer` and `-Token` parameters of the `In
 ## How to use the module?
 
 Creating the token is fairly easy. As prerequisites to run the function is OpenSSL installed (see link above), the JSON file containing the private key of the service account, the data center where your tenant is located and the ID of your tenant. You can find the ID of your tenant in the Alero URL. It is the first randomly generated string.
+
+### Install and import
+```PowerShell
+Install-Module -Name AleroPS
+Import-Module -Name AleroPS
+```
+
+### Create JSON Web Token
 ```PowerShell
 $auth = New-AleroToken -Path .\11eb29d[...]c2051.json -Datacenter alero.io -TenantID 11eb0700[...]25fb604 -AsSecureString
+```
+
+### Run any further command
+This command will return all existing Alero groups.
+```PowerShell
+Get-AleroGroups -Authn $auth -Search "*"
 ```
