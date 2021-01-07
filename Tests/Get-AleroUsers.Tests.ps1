@@ -35,12 +35,26 @@ Describe "Get-AleroUsers" {
         BeforeEach {
             $auth = New-AleroToken -Path $configPath -Datacenter $configFile.Datacenter -TenantID $configFile.TenantID -AsSecureString
         }
-        It "Retrieve Alero users" {
+        It "Retrieve all Alero users" {
             $user = Get-AleroUsers -Authn $auth
             $user | Should -Not -BeNullOrEmpty
             $user | Should -BeOfType [PSCustomObject]
             ($user | Get-Member).Name -contains "totalCount" | Should -BeTrue  
             ($user | Get-Member).Name -contains "users" | Should -BeTrue 
+        }
+        It "Retrieve one Alero user with query string" {
+            $user = Get-AleroUsers -Authn $auth -Name $configFile.UserQuery
+            $user | Should -Not -BeNullOrEmpty
+            $user | Should -BeOfType [PSCustomObject]
+            ($user | Get-Member).Name -contains "totalCount" | Should -BeTrue  
+            ($user | Get-Member).Name -contains "users" | Should -BeTrue
+            $user | Should -HaveCount 1
+        }
+        It "Retrieve one Alero user with user ID" {
+            $user = Get-AleroUsers -Authn $auth -UserId $configFile.UserID
+            $user | Should -Not -BeNullOrEmpty
+            $user | Should -BeOfType [PSCustomObject]
+            $user.id | Should -BeExactly $configFile.UserID
         }
     }
 }
