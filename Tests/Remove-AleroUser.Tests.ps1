@@ -1,4 +1,4 @@
-Describe "Edit-AleroUser" {
+Describe "Remove-AleroUser" {
     BeforeAll {
         #region Importing the module
         $dir = Split-Path (Split-Path $PSScriptRoot -Parent) -Leaf
@@ -18,22 +18,18 @@ Describe "Edit-AleroUser" {
             @{ 
                 Parameter = "UserId"
             }
-            @{ 
-                Parameter = "Status"
-            }
-        )
-        It "<Parameter> is mandatory" -TestCases $mandatoryParameter {
-            param($Parameter)
-            $functionMeta = Get-Command -Name Edit-AleroUser
-            $functionMeta.Parameters[$Parameter].Attributes.Mandatory | Should -BeTrue
+        It "<Parameter> is mandatory in parameterset <ParameterSet>" -TestCases $mandatoryParameter {
+            param($Parameter, $ParameterSet)
+            $functionMeta = Get-Command -Name Get-AleroUsers
+            $functionMeta.Parameters[$Parameter].ParameterSets[$ParameterSet].IsMandatory | Should -BeTrue
         }
     }
     Context "Verify the output" {
         BeforeEach {
             $auth = New-AleroToken -Path $configPath -Datacenter $configFile.Datacenter -TenantID $configFile.TenantID -AsSecureString
         }
-        It "Edit the Alero user" {
-            $user = Edit-AleroUser -Authn $auth -UserId 11ea83a02ec686e38639817872fb7b6e -Status Activated
+        It "Remove Alero user" {
+            $user = Remove-AleroUser -Authn $auth -UserId 
             $user | Should -BeNullOrEmpty
             $user | Should -BeOfType [string]
         }
