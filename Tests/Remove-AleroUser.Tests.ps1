@@ -18,10 +18,11 @@ Describe "Remove-AleroUser" {
             @{ 
                 Parameter = "UserId"
             }
-        It "<Parameter> is mandatory in parameterset <ParameterSet>" -TestCases $mandatoryParameter {
-            param($Parameter, $ParameterSet)
-            $functionMeta = Get-Command -Name Get-AleroUsers
-            $functionMeta.Parameters[$Parameter].ParameterSets[$ParameterSet].IsMandatory | Should -BeTrue
+        )
+        It "<Parameter> is mandatory" -TestCases $mandatoryParameter {
+            param($Parameter)
+            $functionMeta = Get-Command -Name Remove-AleroUser
+            $functionMeta.Parameters[$Parameter].Attributes.Mandatory | Should -BeTrue
         }
     }
     Context "Verify the output" {
@@ -29,7 +30,7 @@ Describe "Remove-AleroUser" {
             $auth = New-AleroToken -Path $configPath -Datacenter $configFile.Datacenter -TenantID $configFile.TenantID -AsSecureString
         }
         It "Remove Alero user" {
-            $user = Remove-AleroUser -Authn $auth -UserId 
+            $user = Remove-AleroUser -Authn $auth -UserId $configFile.UserIDRemove
             $user | Should -BeNullOrEmpty
             $user | Should -BeOfType [string]
         }
