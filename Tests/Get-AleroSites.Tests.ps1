@@ -1,4 +1,4 @@
-Describe "Get-AleroApplications" {
+Describe "Get-AleroSites" {
     BeforeAll {
         #region Importing the module
         $dir = Split-Path (Split-Path $PSScriptRoot -Parent) -Leaf
