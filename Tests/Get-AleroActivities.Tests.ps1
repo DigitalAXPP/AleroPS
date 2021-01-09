@@ -43,5 +43,22 @@ Describe "Get-AleroActivities" {
             $user.activities.activityType -contains 'GroupsUpdated' | Should -BeTrue
             $user.activities.activityType -contains 'GroupsDeleted' | Should -BeTrue
         }
+        It "Retrieve all Alero actitivies for group administration within the past week" {
+            $user = Get-AleroActivities -Authn $auth -ActivityType 'GroupsCreated', 'GroupsDeleted', 'GroupsUpdated' -FromTime (Get-Date).AddDays(-7)
+            $user | Should -Not -BeNullOrEmpty
+            $user | Should -BeOfType [PSCustomObject]
+            $user.activities.activityType -contains 'GroupsCreated' | Should -BeTrue
+            $user.activities.activityType -contains 'GroupsUpdated' | Should -BeTrue
+            $user.activities.activityType -contains 'GroupsDeleted' | Should -BeTrue
+        }
+        It "Between the 5th and 10th entry return all Alero actitivies for group administration" {
+            $user = Get-AleroActivities -Authn $auth -ActivityType 'GroupsCreated', 'GroupsDeleted', 'GroupsUpdated' -Limit 5 -Offset 5
+            $user | Should -Not -BeNullOrEmpty
+            $user | Should -BeOfType [PSCustomObject]
+            $user.activities.activityType -contains 'GroupsCreated' | Should -BeTrue
+            $user.activities.activityType -contains 'GroupsUpdated' | Should -BeTrue
+            $user.activities.activityType -contains 'GroupsDeleted' | Should -BeTrue
+            $user.activities | Should -HaveCount 5
+        }
     }
 }
