@@ -17,12 +17,12 @@ function Get-AleroActivities {
         [Parameter(
             HelpMessage='Start of the period'
         )]
-        [System.DateTimeOffset]$FromTime,
+        [System.DateTimeOffset]$FromTime = (Get-Date).AddDays(-1),
         
         [Parameter(
             HelpMessage='End of the period'
         )]
-        [System.DateTimeOffset]$ToTime,
+        [System.DateTimeOffset]$ToTime = (Get-Date),
         
         [Parameter(
             HelpMessage='The maximum number of entries to return'
