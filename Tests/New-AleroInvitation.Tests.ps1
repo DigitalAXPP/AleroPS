@@ -29,7 +29,7 @@ Describe "New-AleroInvitation" {
         BeforeEach {
             $auth = New-AleroToken -Path $configPath -Datacenter $configFile.Datacenter -TenantID $configFile.TenantID -AsSecureString
         }
-        It "Invite new Alero vendor" {
+        It "Invite new Alero vendor" {    
             $request = @{
                 "accessEndDate" = ([System.DateTimeOffset](Get-Date).AddDays(10)).ToUnixTimeMilliseconds()
                 "accessStartDate" = ([System.DateTimeOffset](Get-Date)).ToUnixTimeMilliseconds()
@@ -54,10 +54,27 @@ Describe "New-AleroInvitation" {
                 )
                 "provisioningType" = "ProvisionedByAlero"
                 "provisioningUsername" = "Jason.Smith@Test-Inc.alero"
-            }
+            }        
             $vendor = New-AleroInvitation -Authn $auth -InvitationRequest $request
             $vendor | Should -Not -BeNullOrEmpty
-            $vendor | Should -BeOfType [PSCustomObject]
+            $vendor | Should -BeOfType [string]
+            $vendor.Length | Should -BeExactly 32
+        }
+        It "Invite new Alero user" {
+            $request = @{
+                "initialStatus" = "Deactivated"
+                "invitationExpirationTime" = ([System.DateTimeOffset](Get-Date).AddDays(10)).ToUnixTimeMilliseconds()
+                "usersToInvite" = @(
+                    @{
+                    "emailAddress" = "test@email.mail"
+                    "name" = "Jason Watts"
+                    }
+                )
+            }
+            $user = New-AleroInvitation -Authn $auth -InvitationRequest $request -UserInvitation
+            $user | Should -Not -BeNullOrEmpty
+            $user | Should -BeOfType [string]
+            $user.Length | Should -BeExactly 32
         }
     }
 }
