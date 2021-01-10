@@ -50,5 +50,17 @@ Describe "Get-AleroVendorInvitations" {
             $invitations | Should -Not -BeNullOrEmpty
             $invitations | Should -BeOfType [PSCustomObject] 
         }
+        It "Return two invitations" {            
+            $invitations = Get-AleroVendorInvitations -Authn $auth -SearchString "Jason" -Limit 2 -Offset 1
+            $invitations | Should -Not -BeNullOrEmpty
+            $invitations | Should -BeOfType [PSCustomObject]
+            $invitations.invitations | Should -HaveCount 2
+        }
+        It "Retrieve an invitation by ID" {            
+            $invitations = Get-AleroVendorInvitations -Authn $auth -InvitationId $configFile.InvitationID
+            $invitations | Should -Not -BeNullOrEmpty
+            $invitations | Should -BeOfType [PSCustomObject]
+            $invitations.id | Should -BeExactly $configFile.InvitationID
+        }
     }
 }
