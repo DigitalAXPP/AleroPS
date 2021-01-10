@@ -40,5 +40,15 @@ Describe "Get-AleroVendorInvitations" {
             $invitations | Should -Not -BeNullOrEmpty
             $invitations | Should -BeOfType [PSCustomObject] 
         }
+        It "Retrieve invitations based on string search" {            
+            $invitations = Get-AleroVendorInvitations -Authn $auth -SearchString "Jason"
+            $invitations | Should -Not -BeNullOrEmpty
+            $invitations | Should -BeOfType [PSCustomObject] 
+        }
+        It "Retrieve invitations based on string search in company name" {            
+            $invitations = Get-AleroVendorInvitations -Authn $auth -SearchString "Test Inc." -SearchIn COMPANY
+            $invitations | Should -Not -BeNullOrEmpty
+            $invitations | Should -BeOfType [PSCustomObject] 
+        }
     }
 }
