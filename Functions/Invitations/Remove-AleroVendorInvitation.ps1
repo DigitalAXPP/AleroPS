@@ -13,6 +13,7 @@ function Remove-AleroVendorInvitation {
         [System.Security.SecureString]$Authn,
 
         [Parameter(
+            Mandatory,
             HelpMessage='The invitation to be removed'
         )]
         [string]$InvitationId
