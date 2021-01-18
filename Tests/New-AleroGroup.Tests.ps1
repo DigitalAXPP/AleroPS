@@ -34,5 +34,20 @@ Describe "New-AleroGroup" {
             $output.Name | Should -Be $groupName
             Remove-AleroGroup -Authn $auth -GroupId $output.Id
         }
+        It "Creating multiple Alero groups with an array of strings" {
+            $groupOne = "GRP-$(Get-Random -Maximum 10000)"
+            $groupTwo = "GRP-$(Get-Random -Maximum 10000)"
+            $groupThree = "GRP-$(Get-Random -Maximum 10000)"
+            $output = $groupOne, $groupTwo, $groupThree |  New-AleroGroup -Authn $auth
+            $output | Should -Not -BeNullOrEmpty
+            $output | Should -BeOfType [PSCustomObject]
+            $output | Should -HaveCount 3
+            $output[0].name | Should -Be $groupOne
+            $output[1].name | Should -Be $groupTwo
+            $output[2].name | Should -Be $groupThree
+            Remove-AleroGroup -Authn $auth -GroupId $output[0].Id
+            Remove-AleroGroup -Authn $auth -GroupId $output[1].Id
+            Remove-AleroGroup -Authn $auth -GroupId $output[2].Id
+        }
     }
 }
