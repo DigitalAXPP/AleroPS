@@ -40,7 +40,7 @@ function New-AleroGroup {
             'ContentType' = 'application/json'
         }
         if ($PSCmdlet.ShouldProcess($Name, "Create the Alero group.")) {
-            $result.Add((Invoke-RestMethod @restCall))
+            $result.Add((Invoke-RestMethod @restCall)) | Out-Null
         }
     }
     
