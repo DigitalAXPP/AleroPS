@@ -20,7 +20,6 @@ function Remove-AleroGroup {
     )
     
     begin {
-        $result = [System.Collections.ArrayList]@()
     }
     
     process {
@@ -31,7 +30,7 @@ function Remove-AleroGroup {
             'Token' = $Authn
         }
         if ($PSCmdlet.ShouldProcess("GroupId: $GroupId", "Remove the Alero group")) {
-            [void]$result.Add((Invoke-RestMethod @restBody))
+            $result = Invoke-RestMethod @restBody
         }
     }
     
