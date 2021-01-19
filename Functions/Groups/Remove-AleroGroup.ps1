@@ -7,20 +7,20 @@ function Remove-AleroGroup {
     param (
         [Parameter(
             Mandatory,
-            ValueFromPipelineByPropertyName,
             HelpMessage='Token to authenticate to Alero.'
         )]
         [System.Security.SecureString]$Authn,
         
         [Parameter(
             Mandatory,
+            ValueFromPipeline,
             HelpMessage='The unique ID of the AleroLDAP group.'
         )]
         [string]$GroupId
     )
     
     begin {
-        
+        $result = [System.Collections.ArrayList]@()
     }
     
     process {
@@ -31,7 +31,7 @@ function Remove-AleroGroup {
             'Token' = $Authn
         }
         if ($PSCmdlet.ShouldProcess("GroupId: $GroupId", "Remove the Alero group")) {
-            $result = Invoke-RestMethod @restBody
+            [void]$result.Add((Invoke-RestMethod @restBody))
         }
     }
     
