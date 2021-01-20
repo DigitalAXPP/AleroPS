@@ -7,20 +7,19 @@ function Remove-AleroGroup {
     param (
         [Parameter(
             Mandatory,
-            ValueFromPipelineByPropertyName,
             HelpMessage='Token to authenticate to Alero.'
         )]
         [System.Security.SecureString]$Authn,
         
         [Parameter(
             Mandatory,
+            ValueFromPipeline,
             HelpMessage='The unique ID of the AleroLDAP group.'
         )]
         [string]$GroupId
     )
     
     begin {
-        
     }
     
     process {

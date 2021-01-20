@@ -6,13 +6,13 @@ function New-AleroGroup {
     param (
         [Parameter(
             Mandatory,
-            ValueFromPipelineByPropertyName,
             HelpMessage='Token to authenticate to Alero.'
         )]
         [System.Security.SecureString]$Authn,
 
         [Parameter(
             Mandatory,
+            ValueFromPipeline,
             HelpMessage='The name of the AleroLDAP group that will be added as a member to CyberArk Safes.'
         )]
         [string]$Name,
@@ -24,7 +24,7 @@ function New-AleroGroup {
     )
     
     begin {
-        
+        $result = [System.Collections.ArrayList]@()
     }
     
     process {
@@ -40,7 +40,7 @@ function New-AleroGroup {
             'ContentType' = 'application/json'
         }
         if ($PSCmdlet.ShouldProcess($Name, "Create the Alero group.")) {
-            $result = Invoke-RestMethod @restCall
+            $result.Add((Invoke-RestMethod @restCall)) | Out-Null
         }
     }
     
