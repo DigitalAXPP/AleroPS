@@ -32,5 +32,13 @@ Describe "Remove-AleroGroup" {
             $output | Should -BeNullOrEmpty
             $output | Should -BeOfType [string]
         }
+        It "Remove multiple Alero groups" {
+            $groupOne = "GRP-$(Get-Random -Maximum 10000)"
+            $groupTwo = "GRP-$(Get-Random -Maximum 10000)"
+            $groupThree = "GRP-$(Get-Random -Maximum 10000)"
+            $output = $groupOne, $groupTwo, $groupThree |  New-AleroGroup -Authn $auth
+            $result = $output[0].Id, $output[1].Id, $output[2].Id | Remove-AleroGroup -Authn $auth
+            $result | Should -BeNullOrEmpty
+        }
     }
 }
