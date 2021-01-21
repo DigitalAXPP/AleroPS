@@ -13,7 +13,7 @@ This function removes an Alero invitation.
 ## SYNTAX
 
 ```
-Remove-AleroVendorInvitation [-Authn] <SecureString> [[-InvitationId] <String>] [-WhatIf] [-Confirm]
+Remove-AleroVendorInvitation [-Authn] <SecureString> [-InvitationId] <String> [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -54,7 +54,7 @@ Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 1
 Default value: None
 Accept pipeline input: False
