@@ -15,9 +15,9 @@ class JwtClaimSet {
 
     [string]Create()
     {
-        $now = (Get-Date).ToUniversalTime()    
-        $createDate = [Math]::Floor([decimal](Get-Date($now) -UFormat "%s"))    
-        $expiryDate = [Math]::Floor([decimal](Get-Date($now.AddHours(72)) -UFormat "%s"))
+        # $now = (Get-Date).ToUniversalTime()    
+        # $createDate = [Math]::Floor([decimal](Get-Date($now) -UFormat "%s"))    
+        # $expiryDate = [Math]::Floor([decimal](Get-Date($now.AddHours(72)) -UFormat "%s"))
 
         Write-Verbose -Message "The claim set will be created."
         $rawclaims = [Ordered]@{    
@@ -25,12 +25,10 @@ class JwtClaimSet {
             iss = "$($this.TenantID).$($this.ServiceAccountId).ExternalServiceAccount"        
             sub = "$($this.TenantID).$($this.ServiceAccountId).ExternalServiceAccount"        
             nbf = "0"        
-            exp = $expiryDate        
-            iat = $createDate        
+            exp = [System.DateTimeOffset]::Now.AddHours(3).ToUnixTimeSeconds()        
+            iat = [System.DateTimeOffset]::Now.ToUnixTimeSeconds()        
             jti = [guid]::NewGuid()
         } | ConvertTo-Json
-
-        $rawclaims = $rawclaims -replace ' ' -replace "`r|`n"
         return [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($rawclaims)) -replace '\+','-' -replace '/','_' -replace '='
     }
 }

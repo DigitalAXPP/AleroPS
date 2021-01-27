@@ -35,12 +35,22 @@ function New-AleroToken {
     process {
         Write-Verbose -Message "Retrieving content from the Alero JSON file."
         $authenticationFile = Get-Content -Path $Path | ConvertFrom-Json
-        Write-Verbose -Message "Creating the JWT Header."
-        $jwtHeader = [JwtHeader]::new().Create()
-        Write-Verbose -Message "Creating the JWT claim set."
-        $jwtClaimSet = [JwtClaimSet]::new($authenticationFile.serviceAccountId, $TenantID, $Datacenter).Create()
-        Write-Verbose -Message "Creating the JWT signature."
-        $jwtSignature = [JwtSignature]::new($authenticationFile.privateKey, "$jwtHeader.$jwtClaimSet").Create()
+        # Write-Verbose -Message "Creating the JWT Header."
+        # $jwtHeader = [JwtHeader]::new().Create()
+        # Write-Verbose -Message "Creating the JWT claim set."
+        # $jwtClaimSet = [JwtClaimSet]::new($authenticationFile.serviceAccountId, $TenantID, $Datacenter).Create()
+        # Write-Verbose -Message "Creating the JWT signature."
+        # $jwtSignature = [JwtSignature]::new($authenticationFile.privateKey, "$jwtHeader.$jwtClaimSet").Create()
+        $rawclaims = [Ordered]@{    
+            aud = "https://auth.$($Datacenter)/auth/realms/serviceaccounts"        
+            iss = "$($TenantID).$($authenticationFile.ServiceAccountId).ExternalServiceAccount"        
+            sub = "$($TenantID).$($authenticationFile.ServiceAccountId).ExternalServiceAccount"        
+            nbf = "0"        
+            exp = ([System.DateTimeOffset]::Now.AddHours(3)).ToUnixTimeSeconds()
+            iat = ([System.DateTimeOffset]::Now).ToUnixTimeSeconds()
+            jti = [guid]::NewGuid()
+        }
+        $jwtSignature = New-JWT -PrivateKey $authenticationFile.privateKey -Algorithm RS256 -Payload $rawclaims
 
         Write-Verbose -Message "Sending the API call."
         $url="https://auth.$Datacenter/auth/realms/serviceaccounts/protocol/openid-connect/token"
