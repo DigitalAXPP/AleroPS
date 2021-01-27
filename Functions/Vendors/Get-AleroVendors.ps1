@@ -31,13 +31,13 @@ function Get-AleroVendors {
             ParameterSetName='ByString',
             HelpMessage='The maximum number of entries to return'
         )]
-        [int]$Limit = 0,
+        [int]$Limit = 100,
         
         [Parameter(
             ParameterSetName='ByString',
             HelpMessage='The number of entries to skip'
         )]
-        [int]$Offset = 100,
+        [int]$Offset = 0,
         
         [Parameter(
             ParameterSetName='ByString',
